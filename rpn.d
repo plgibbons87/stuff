@@ -8,10 +8,10 @@ void main()
         switch (op)
         {
             // Generate operator switch cases statically
-            static foreach (c; "+-*/")
+            static foreach (c; "+-*/^")
                 case [c]:
                     return stack[0 .. $ - 2] ~
-                        mixin("stack[$ - 2] " ~ c ~
+                        mixin("stack[$ - 2] " ~ (c == '^' ? "^^" : to!string(c)) ~
                             " stack[$ - 1]");
             default: return stack ~ op.to!real;
         }
