@@ -2,53 +2,31 @@ void main()
 {
     import std.stdio, std.string, std.algorithm, std.conv;
 
-    version(iconJack)
+    string[] operators()
     {
-        string[] iconJackOperators()
+        version(iconJack)
         {
             return ["+", "-", "*", "/", "**"];
         }
-
-        string dOperator(string op)
-        {
-            string [string] map;
-
-            static foreach(s; iconJackOperators())
-            {
-                map[s] = s;
-            }
-            map["**"] = "^^";
-            return map[op];
-        }
-
-        string[] getOperators()
-        {
-            return iconJackOperators();
-        }
-    }
-    else
-    {
-        string[] operators()
+        else
         {
             return ["+", "-", "*", "/", "^"];
         }
-        string dOperator(string op)
-        {
-            string [string] map;
-
-            static foreach(s; dOperators())
-            {
-                map[s] = s;
-            }
-            map["^"] = "^^";
-            return map[op];
-
-        }
-        string[] getOperators()
-        {
-            return operators();
-        }
     }
+
+    string dOperator(string op)
+    {
+        string [string] map;
+        string actualDExp = "^^";
+
+        static foreach(s; operators())
+        {
+            map[s] = s;
+        }
+        version(iconJack)   { map["**"] = actualDExp; }  else { map["^"] = actualDExp; }
+        return map[op];
+    }
+
 
     // Reduce the RPN expression using a stack
 static if (true)
@@ -59,7 +37,7 @@ static if (true)
         switch (op)
         {
             // Generate operator switch cases statically
-            static foreach (o; getOperators())
+            static foreach (o; operators())
                 case o:
                     return stack[0 .. $ - 2] ~
                         mixin("stack[$ - 2] " ~ dOperator(o) ~
