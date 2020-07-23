@@ -1,0 +1,18 @@
+{
+	"authors": [
+		"gibbopat"
+	],
+	"copyright": "Copyright © 2020, gibbopat",
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "stuff",
+
+	"configurations": [
+		{
+			"name": "desktop-app",
+			"targetType": "executable",
+			"platforms": ["windows"],
+			"versions": ["DesktopApp"]
+		}
+	]
+}

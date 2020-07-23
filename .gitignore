@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/stuff
+stuff.so
+stuff.dylib
+stuff.dll
+stuff.a
+stuff.lib
+stuff-test-*
+*.exe
+*.o
+*.obj
+*.lst
+*.code-workspace
+*.bin
