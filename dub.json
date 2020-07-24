@@ -10,10 +10,8 @@
 
 	"configurations": [
 		{
-			"name": "desktop-app",
-			"targetType": "executable",
-			"platforms": ["windows"],
-			"versions": ["DesktopApp"]
+			"name": "app",
+			"targetType": "executable"
 		}
 	]
 }
