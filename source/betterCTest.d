@@ -1,4 +1,6 @@
-extern(C) void main()
+ import funcs;
+
+ void main()
 {
     import core.stdc.stdio : printf;
     printf("Hello betterC\n");
@@ -6,7 +8,7 @@ extern(C) void main()
     string tests = "test";
     string tests2 = "again";
     
-    int[10] test2 = [0,1,2,3,4,5,6,7,8,9];
+    int[] test2 = [0,1,2,3,4,5,6,7,8,9];
     foreach(x; tests)
     {
         printf("%c\n", x);
@@ -21,4 +23,7 @@ extern(C) void main()
             printf("%c\n", a);
         }
     }
+
+    printf("%d\n", inc(1));
 }
+
