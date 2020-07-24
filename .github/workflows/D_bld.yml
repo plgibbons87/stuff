@@ -24,8 +24,8 @@ jobs:
     - uses: dlang-community/setup-dlang@v1
       with:
         compiler: dmd-latest
-    - name: Build
-      run: dub build
+    - name: unit test
+      run: dub test
       
     # Runs a single command using the runners shell
     - name: Run a one-line script
